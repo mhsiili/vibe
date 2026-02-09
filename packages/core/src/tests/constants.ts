@@ -133,7 +133,10 @@ export enum ComponentDefaultTestId {
   TABLE_HEADER = "table-header",
   TABLE_HEADER_CELL = "table-header-cell",
   TABLE_ROW = "table-row",
-  TABLE_ROW_MENU = "table-row-menu"
+  TABLE_ROW_MENU = "table-row-menu",
+  PIE_CHART = "pie-chart",
+  PIE_CHART_SLICE = "pie-chart-slice",
+  PIE_CHART_LEGEND = "pie-chart-legend"
 }
 
 export enum NavigationCommand {
@@ -186,6 +189,7 @@ export enum ComponentVibeId {
   MODAL = "Modal",
   MULTI_STEP_INDICATOR = "MultiStepIndicator",
   NUMBER_FIELD = "NumberField",
+  PIE_CHART = "PieChart",
   RADIO_BUTTON = "RadioButton",
   SEARCH = "Search",
   SKELETON = "Skeleton",

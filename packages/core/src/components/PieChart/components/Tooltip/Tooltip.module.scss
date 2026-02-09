@@ -1,0 +1,42 @@
+.tooltip {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  background-color: var(--primary-background-color, #ffffff);
+  border: 1px solid var(--ui-border-color, #d0d4e4);
+  border-radius: var(--border-radius-small, 4px);
+  padding: var(--spacing-small, 8px) var(--spacing-medium, 12px);
+  box-shadow: var(--box-shadow-medium, 0 4px 6px rgba(0, 0, 0, 0.1));
+  min-width: 120px;
+  animation: tooltipFadeIn 0.15s ease-out;
+}
+
+.label {
+  font-size: var(--font-size-general-label, 14px);
+  font-weight: 600;
+  color: var(--primary-text-color, #323338);
+  margin-bottom: var(--spacing-xs, 4px);
+}
+
+.value {
+  font-size: var(--font-size-paragraph, 14px);
+  color: var(--secondary-text-color, #676879);
+  margin-bottom: 2px;
+}
+
+.percentage {
+  font-size: var(--font-size-caption, 12px);
+  color: var(--primary-color, #0073ea);
+  font-weight: 600;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

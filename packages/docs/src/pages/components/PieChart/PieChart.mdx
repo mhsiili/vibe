@@ -1,0 +1,154 @@
+import { Meta } from "@storybook/blocks";
+import * as PieChartStories from "./PieChart.stories";
+
+<Meta of={PieChartStories} />
+
+# PieChart
+
+A flexible and interactive pie chart component for visualizing proportional data. The component supports customizable colors, animations, tooltips, legends, and donut mode.
+
+## Import path
+
+```tsx
+import { PieChart } from "@vibe/core";
+```
+
+## Overview
+
+<Canvas of={PieChartStories.Overview} />
+
+## Props
+
+<PropsTable />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use pie charts to show parts of a whole when you have 2-7 categories",
+    "Ensure slice values add up to a meaningful total (100%, total count, etc.)",
+    "Consider using a donut chart when you need to display a central value or metric",
+    "Enable legends for pie charts with more than 3-4 slices for better readability",
+    "Use custom colors strategically to highlight important data or maintain brand consistency",
+    "Avoid using pie charts when precise comparison is needed - consider bar charts instead"
+  ]}
+/>
+
+## Accessibility
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Always provide a descriptive <code>ariaLabel</code> that explains what data the chart represents (e.g., "Sales
+      distribution by region").
+    </>,
+    <>
+      Each slice automatically includes an accessible label with the category name, value, and percentage for screen
+      reader users.
+    </>,
+    <>
+      When using interactive features like <code>onSliceClick</code>, ensure the interaction is keyboard accessible and
+      provides appropriate feedback.
+    </>,
+    <>The legend provides an alternative way to understand the data for users who cannot perceive colors.</>
+  ]}
+/>
+
+## Variants
+
+### With Legend
+
+Display a legend to help users identify each slice by color and see exact values.
+
+<Canvas of={PieChartStories.WithLegend} />
+
+### Donut Mode
+
+Enable donut mode to create a hollow center, useful for displaying additional information or creating a more modern look.
+
+<Canvas of={PieChartStories.DonutMode} />
+
+### Interactive
+
+Add click handlers to slices for interactive data exploration.
+
+<Canvas of={PieChartStories.Interactive} />
+
+### Custom Colors
+
+Define custom colors for each slice to match your brand or highlight specific data.
+
+<Canvas of={PieChartStories.CustomColors} />
+
+### Different Sizes
+
+Choose from small, medium, or large sizes to fit your layout needs.
+
+<Canvas of={PieChartStories.Sizes} />
+
+### Small Dataset
+
+Works well with just 2-3 categories.
+
+<Canvas of={PieChartStories.SmallData} />
+
+### Large Dataset
+
+Handles multiple categories with legends for clarity.
+
+<Canvas of={PieChartStories.LargeData} />
+
+## Do's and Don'ts
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <></>,
+        description:
+          "Use pie charts to show proportional relationships when you have a limited number of categories (2-7) that together represent a complete whole."
+      },
+      negative: {
+        component: <></>,
+        description:
+          "Avoid using pie charts when you need precise comparison between values or when you have too many categories (8+), as they become difficult to read."
+      }
+    },
+    {
+      positive: {
+        component: <></>,
+        description:
+          "Enable the legend when displaying more than 3-4 slices to help users identify each category without relying solely on hover tooltips."
+      },
+      negative: {
+        component: <></>,
+        description:
+          "Don't display pie charts without legends when there are many slices, as users may struggle to match colors to categories."
+      }
+    },
+    {
+      positive: {
+        component: <></>,
+        description:
+          "Use meaningful, descriptive labels for each slice that clearly communicate what the data represents to all users."
+      },
+      negative: {
+        component: <></>,
+        description:
+          "Avoid generic labels like 'Item 1', 'Item 2' that don't provide context about what the data represents."
+      }
+    },
+    {
+      positive: {
+        component: <></>,
+        description:
+          "Consider using donut mode when you want to emphasize the relationship between parts while maintaining visual breathing room in the design."
+      },
+      negative: {
+        component: <></>,
+        description:
+          "Don't use overly complex visual variations (like 3D effects or exploded slices) that can distort data perception."
+      }
+    }
+  ]}
+/>
