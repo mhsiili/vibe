@@ -57,6 +57,7 @@ export * from "./MenuButton";
 export * from "./NumberField";
 export * from "./LegacyModal";
 export * from "./MultiStepIndicator";
+export * from "./PieChart";
 export * from "./ProgressBars";
 export * from "./RadioButton";
 export * from "./Search";
