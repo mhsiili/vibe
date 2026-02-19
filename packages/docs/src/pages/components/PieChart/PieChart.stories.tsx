@@ -1,13 +1,33 @@
 import React, { useState } from "react";
 import { PieChart, type PieChartProps, Flex } from "@vibe/core";
 import { type Meta, type StoryObj } from "@storybook/react";
+import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
+
+type Story = StoryObj<typeof PieChart>;
+
+const metaSettings = createStoryMetaSettingsDecorator({
+  component: PieChart,
+  actionPropsArray: ["onSliceClick"]
+});
 
 export default {
   title: "Components/PieChart",
-  component: PieChart
+  component: PieChart,
+  argTypes: {
+    ...metaSettings.argTypes,
+    size: {
+      control: "select",
+      options: ["small", "medium", "large"],
+      description: "Size of the pie chart"
+    },
+    legendPosition: {
+      control: "select",
+      options: ["top", "bottom", "left", "right"],
+      description: "Position of the legend relative to the chart"
+    }
+  },
+  decorators: metaSettings.decorators
 } satisfies Meta<typeof PieChart>;
-
-type Story = StoryObj<typeof PieChart>;
 
 const sampleData = [
   { value: 30, label: "Category A" },
@@ -16,9 +36,17 @@ const sampleData = [
 ];
 
 export const Overview: Story = {
-  render: (args: PieChartProps) => (
-    <PieChart data={sampleData} size="medium" id="overview-pie-chart" ariaLabel="Overview pie chart" {...args} />
-  )
+  render: (args: PieChartProps) => <PieChart {...args} />,
+  args: {
+    data: sampleData,
+    size: "medium",
+    donutMode: false,
+    animated: true,
+    showLegend: false,
+    legendPosition: "right",
+    id: "overview-pie-chart",
+    ariaLabel: "Overview pie chart"
+  }
 };
 
 export const WithLegend: Story = {

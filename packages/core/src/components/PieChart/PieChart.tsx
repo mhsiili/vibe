@@ -48,7 +48,7 @@ const PieChart = forwardRef(
         medium: { viewBoxSize: 200, radius: 85, innerRadius: 42, strokeWidth: 1.5 },
         large: { viewBoxSize: 280, radius: 120, innerRadius: 60, strokeWidth: 2 }
       };
-      return dimensions[size];
+      return dimensions[size] || dimensions.medium;
     }, [size]);
 
     const centerX = viewBoxSize / 2;
@@ -66,8 +66,12 @@ const PieChart = forwardRef(
       setHoveredSlice(null);
     }, []);
 
-    const handleMouseMove = useCallback((event: React.MouseEvent) => {
-      setMousePosition({ x: event.clientX, y: event.clientY });
+    const handleMouseMove = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
+      const container = event.currentTarget;
+      const rect = container.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      setMousePosition({ x, y });
     }, []);
 
     const wrapperClassName = useMemo(

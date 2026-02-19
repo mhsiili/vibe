@@ -18,18 +18,38 @@ const Tooltip = ({ slice, percentage, mouseX, mouseY }: TooltipProps) => {
 
     const tooltip = tooltipRef.current;
     const tooltipRect = tooltip.getBoundingClientRect();
-    const padding = 10;
+    const offsetX = 12; // Horizontal offset from cursor
+    const offsetY = -8; // Vertical offset from cursor (slight upward shift)
 
-    let x = mouseX + padding;
-    let y = mouseY + padding;
+    // Always position to the right of the cursor
+    let x = mouseX + offsetX;
+    let y = mouseY + offsetY;
 
-    // Adjust if tooltip would go off screen
-    if (x + tooltipRect.width > window.innerWidth) {
-      x = mouseX - tooltipRect.width - padding;
-    }
+    // Get the chart container bounds (tooltip's offset parent)
+    const container = tooltip.offsetParent;
+    if (container) {
+      const containerRect = container.getBoundingClientRect();
+      
+      // Only adjust if tooltip would go off the right edge of container
+      if (x + tooltipRect.width > containerRect.width) {
+        // Position to the left of cursor as fallback
+        x = mouseX - tooltipRect.width - offsetX;
+      }
 
-    if (y + tooltipRect.height > window.innerHeight) {
-      y = mouseY - tooltipRect.height - padding;
+      // Adjust if tooltip would go off the bottom edge of container
+      if (y + tooltipRect.height > containerRect.height) {
+        y = containerRect.height - tooltipRect.height - 4;
+      }
+
+      // Ensure tooltip doesn't go off the top edge
+      if (y < 0) {
+        y = 4;
+      }
+
+      // Ensure tooltip doesn't go off the left edge (edge case)
+      if (x < 0) {
+        x = 4;
+      }
     }
 
     setPosition({ x, y });

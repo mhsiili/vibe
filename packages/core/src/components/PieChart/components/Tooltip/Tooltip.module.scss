@@ -1,11 +1,11 @@
 .tooltip {
-  position: fixed;
+  position: absolute;
   z-index: 1000;
   pointer-events: none;
   background-color: var(--primary-background-color, #ffffff);
   border: 1px solid var(--ui-border-color, #d0d4e4);
   border-radius: var(--border-radius-small, 4px);
-  padding: var(--spacing-small, 8px) var(--spacing-medium, 12px);
+  padding: var(--space-2, 8px) var(--space-3, 12px);
   box-shadow: var(--box-shadow-medium, 0 4px 6px rgba(0, 0, 0, 0.1));
   min-width: 120px;
   animation: tooltipFadeIn 0.15s ease-out;
