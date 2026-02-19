@@ -1,0 +1,46 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-block-end: var(--space-4);
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.title {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.aggregate {
+  color: var(--primary-text-color);
+}
+
+.periodSelector {
+  flex-shrink: 0;
+}
+
+.periodDropdown {
+  min-width: 120px;
+}
+
+.chartContainer {
+  position: relative;
+  width: 100%;
+  min-width: 400px;
+  min-height: 300px;
+}
