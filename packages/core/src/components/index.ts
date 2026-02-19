@@ -3,6 +3,7 @@ export * from "./AlertBanner";
 export * from "./AttentionBox";
 export * from "./Avatar";
 export * from "./AvatarGroup";
+export * from "./BarChart";
 export * from "./Badge";
 export * from "./BreadcrumbsBar";
 export * from "@vibe/button";
